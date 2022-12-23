@@ -1,5 +1,6 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import React, { version } from 'react';
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Hello Dương
         </a>
       </header>
     </div>
+
   );
 }
 
