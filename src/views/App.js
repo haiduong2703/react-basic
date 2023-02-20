@@ -1,26 +1,43 @@
-import logo from './logo.svg';
-import './App.scss';
-import React, { version } from 'react';
+import logo from "./logo.svg";
+import "./App.scss";
+import React, { version } from "react";
+import MyComponent from "./Example/MyComponents";
+import ListToDo from "./Todos/ListToDo";
+import Nav from "./Nav/Nav";
+import Home from "./Example/Home";
+import ListUser from "./User/ListUser";
+import DetailUser from "./User/DetailUser";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hello Dương
-        </a>
-      </header>
-    </div>
-
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <Nav />
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>Simple TODO APP</p>
+          <Home />
+          <Switch>
+            <Route path="/home" exact>
+              <Home />
+            </Route>
+            <Route path="/todo">
+              <ListToDo />
+            </Route>
+            <Route path="/about">
+              <MyComponent />
+            </Route>
+            <Route path="/user" exact>
+              <ListUser />
+            </Route>
+            <Route path="/user/:id">
+              <DetailUser />
+            </Route>
+          </Switch>
+        </header>
+      </div>
+    </BrowserRouter>
   );
 }
 
